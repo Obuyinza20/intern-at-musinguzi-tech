@@ -1,0 +1,73 @@
+{% extends 'main.html' %} 
+
+
+
+
+
+{% block content %} 
+
+<main style="min-height: 50vh;">
+    {% if page == 'internees' %}
+<div class="internees_container">
+    <h2>All Registered Interness</h2>
+    {% for internee in internees %} 
+    <div class="internee-wrapper">
+        <h3><a href="{% url 'singleinternee' internee.id %}">{{internee.id}}---{{internee.first_name}}  {{internee.second_name}}</a></h3>
+    </div>
+    {% endfor %}
+</div>
+
+{% elif  page == 'singleinternee' %} 
+
+<div class="internee-hero-text">
+    <h2>All about {{internee.first_name}}</h2>
+</div>
+<div class="internee-info">
+    <h3>Full Names:  {{internee.first_name}} {{internee.second_name}}</h3>
+    <h3>Institution: {{internee.institution }}</h3>
+    <h3>Course: {{internee.course}}</h3>
+    <h3>Training Period: {{internee.period}}</h3>
+    <h3>Gender: {{internee.gender}}</h3>
+    <h3>Willingness to Learning: {{internee.willingness}}</h3>
+    <h3>Area of most interest: {{internee.area_of_interest}}</h3>
+    <h3>Email Address: {{internee.email}}</h3>
+    <h3>Phone Number: {{internee.phone_number}}</h3>
+</div>
+<div class="accept-form">
+    
+       <a href="{% url 'accepted_internee' internee.id %}"> <input type="submit" name="accept" value="Accept Application" id=""></a>
+
+</div>
+
+{% else %}
+
+
+<div  style="text-align: center;">
+   <h4 style="margin-top: 120px">  An acceptance letter has been successfully sent to {{accepted_internee.first_name}} {{accepted_internee.second_name}}</h4>
+   
+</div>
+
+
+{% endif %}
+</main>
+<div class="mob-menu-wrapper">
+    <div></div>
+    <div class="mob-menu-list" >
+        <a style="color :purple"  style="color :purple"href="#"><i class="fa-solid fa-house" style="color:#313030; margin-right:5px"></i>Home</a>
+        <a style="color :purple" href="#"><i class="fa-solid fa-address-card" style="color:#313030; margin-right:5px"></i>About Us</a>
+        <a style="color :purple" href="#"><i class="fa-solid fa-boxes-stacked" style="color:#313030; margin-right:5px"></i>Our Services</a>
+        {% if request.user.is_authenticated %}
+    
+        {% if request.user.is_superuser %}
+        <a style="color :purple" href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+        <a style="color :purple" href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+        {% endif %}
+        {% else %} 
+        <a style="color :purple" href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+        {% endif %}</div>
+        
+    </div>
+
+
+
+{% endblock content %}

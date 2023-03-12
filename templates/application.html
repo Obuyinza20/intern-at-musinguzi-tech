@@ -1,0 +1,97 @@
+{% extends 'main.html' %} 
+
+{% load static %}
+
+
+
+{% block content %} 
+
+
+<main>
+    
+    <div class="text">
+        <h3>Push your IT skills to another level with our intensive practical sessions!</h3>
+        <p>Our training is open to all students persuing Computing and Engineering Courses. </p>
+        <p>We offer Certificates of Completion and free breakfast throughout the training period!</p>
+       <h2> APPLICATION FORM </h2>
+    </div>
+    <div class="application-wrapper">
+    <div >
+    <img src="{% static 'images/apply.png' %} " alt="" class="application-logo">
+    </div>
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %} 
+            <div class="form-divs-wrapper">
+             <div class="form-div-one">
+                First Name: <input type="text" name="first_name" id="" required placeholder="..............................................."><br><br>
+                Second Name: <input type="text" name="second_name" id="" placeholder="..............................................."><br><br>
+                Institution: <input type="text" name="institution" id="" placeholder="..............................................."><br><br>
+                Course you offer: <input type="text" name="course" id="" placeholder="..............................................."><br><br>
+
+                Gender: <br>
+                <select name="gender" id="gender">
+                    <option value="choose">Choose</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+             </div>
+             <div class="form-div-two">
+                Email Address: <input type="text" name="email" id="" placeholder="..............................................."><br><br>
+                Phone Number: <input type="text" name="phone_number" id="" placeholder="..............................................."><br><br>
+                Training Period: <input type="text" name="period" id="" placeholder="..............................................."><br><br>
+                Are you willing to commit yourself to learnign?: <br>
+                <label for="yes">Yes</label><input  style="width:5%; margin-right: 22px;" type="radio" name="willingness" id="" value="Yes">
+                <label for="no">No</label><input style="width:5%; margin-right: 22px;"  type="radio" name="willingness" id="" value="No">
+                <label for="unsure">Not Sure</label><input  style="width:5%; margin-right: 22px;" type="radio" name="willingness" id="" value="Not Sure"><br><br>
+                Main area of interest: <br>
+                <select name="area_of_interest" id="area_of_interest">
+                    <option  value="Select">Select</option>
+                    <option value="Web Development">Web and Mobile App Development</option>
+                    <option value="Repair">Computer Repair and Maintenance</option>
+                    <option value="camera">Camera Installation and Maintenance</option>
+                    <option value="networking">Networking</option>
+                    <option value="embedded">Embedded Systems Development</option>
+                    <option value="Graphics">Graphics Design</option>
+                    <option value="gps">GPS Tracking</option>
+                    <option value="acs">Access Control Systems</option>
+                    <option value="fire">Fire Systems</option>
+                    <option value="device">Device Programming</option>
+                    <option value="all">All</option>
+                </select>
+             </div>
+            </div>
+            <button style="width:100%; border-radius: 5px;margin: 2px 0;">PLACE APPLICATION</button>
+        </form>
+
+    </div>
+    </div>
+    <div>
+
+    </div>
+    <div class="mob-menu-wrapper">
+        <div></div>
+        <div class="mob-menu-list" >
+            <a style="color :purple"  style="color :purple"href="#"><i class="fa-solid fa-house" style="color:#313030; margin-right:5px"></i>Home</a>
+            <a style="color :purple" href="#"><i class="fa-solid fa-address-card" style="color:#313030; margin-right:5px"></i>About Us</a>
+            <a style="color :purple" href="#"><i class="fa-solid fa-boxes-stacked" style="color:#313030; margin-right:5px"></i>Our Services</a>
+            {% if request.user.is_authenticated %}
+        
+            {% if request.user.is_superuser %}
+            <a style="color :purple" href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+            <a style="color :purple" href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+            {% endif %}
+            {% else %} 
+            <a style="color :purple" href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+            {% endif %}</div>
+            
+        </div>
+</main>
+
+
+
+
+
+
+
+{% endblock content %}

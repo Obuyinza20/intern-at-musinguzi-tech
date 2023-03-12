@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}">
+        <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+        <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div header>
+            <div class="header-top-section">
+                <div class="slogan">
+                    <div>
+                    <h3> ITC FOR Business and innovation boast with us</h3>
+                    </div>
+                    <div class="header-top" >
+                        <a style="margin-right:10px"><i class="fa-solid fa-phone"></i>What'sup 0773564592
+                        </a>
+                        <a style="margin-right:10px"><i class="fa-solid fa-clock"></i> 9am - 5pm
+                        </a>
+                        <a style="margin-right:10px"><i class="fa-solid fa-at"></i> info@musinguzitechnologies.com</a>
+                    </div>
+                </div>
+        
+                
+        
+            </div>
+            <div class="navbar">
+                <div style="background: green; margin-left: 0; display: flex;">
+                    <div class="logo">
+                        <img src="{% static 'images/musinguzi-logo.png' %}" alt="hack">
+                    </div>
+                    <div class="logo-text" >
+                        <h5 style="color:red">MUSINGUZI TECHNOLOGIES</h5>
+                        <H5 style="text-align: center;">IT AT IT'S BEST</H5>
+                    </div>
+                    
+                </div>
+                <!-- <div style="border-bottom:100px solid blue;border-left:50px solid transparent">
+                  </div> -->
+                  <div class="menu-icon">
+                    {% if request.user.is_authenticated %}
+                    
+                  {% if request.user.is_superuser %}
+                  <a class="showme"  href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+                  <a  class="hideme" href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+                  {% endif %}
+                  {% else %} 
+                  <a  class="hideme" href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+                  {% endif %}
+                  
+                    <button onclick=" open()" id="mob-menu-icon"><i class="fa fa-bars" aria-hidden="true  icon"></i></button>
+                    <div>
+                        <button id="mob-close-icon"><i class="fa fa-times" aria-hidden="true"></i></button>
+                        <!-- <div class="mob-menu-list">
+                            <a href="#">Home</a>
+                            <a href="#">About Us</a>
+                            <a href="#">Our Services</a>
+                            {% if request.user.is_authenticated %}
+                    
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+                            <a href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+                            {% endif %}
+                            {% else %} 
+                            <a href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+                            {% endif %}
+                        </div> -->
+                    </div>
+                  </div>
+                  
+                    
+                  <div class="menu-icons">
+                    {% if request.user.is_authenticated %}
+                    
+                    {% if request.user.is_superuser %}
+                    <a href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+                    <a href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+                    {% endif %}
+                    {% else %} 
+                    <a href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+                    {% endif %}
+                   
+                    <a><i class="fa-solid fa-house" style="color:#313030; margin-right:5px"></i>Home</a>
+                    <a><i class="fa-solid fa-address-card" style="color:#000; margin-right:5px"></i>About Us</a>
+                    <a><i class="fa-solid fa-boxes-stacked" style="color:#000; margin-right:5px"></i>Our Services</a>
+                    
+                    
+                </div>
+                
+        
+            </div>
+        </div>
+        
+        {% block content %} 
+
+
+
+
+
+
+        {% endblock content %}
+
+        <div class="footer">
+            <footer>
+                <div style="display:grid; grid-template-columns: 1fr 1fr 1fr;">
+                    <div style="margin:10px">
+                        <h4  style="margin:10px">About Musinguzi Technologies</h4>
+                        <div style="margin:10px">
+                            <p>MUSINGUZI TECHNOLOGIES LTD with her technically competent team evaluates the clients’ businesses and recommend the best technology solutions that will deliver reliable and effective results.</p>
+                    </div>
+                    </div>
+                    <div style="margin:10px">
+                        <h4 style="margin:10px">Useful Links</h4>
+                        <div style="margin:10px">
+                        <ul style="list-style: none;">
+                            <li><a>Privacy Policy</a></li>
+                            <li><a>of service</a> </li>
+                            <li><a>Special services</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div style="margin:10px">
+                        <h4 style="margin:10px">Contact Information</h4>
+                        <div style="margin:10px">
+                        <ul style="list-style: none;">
+                            <li>Located at Uganda House, Kampala Uganda</li>
+                            <li>P.O BOX: 104385</li>
+                            <li>Tel:+256756997132 / 256773564592</li>
+                            <li> Email: admin@musinguzitechnologies.com</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+        
+                <div style="width:100%; background:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));text-align: center;padding: 5px;">
+                    Copyright © 2021. MUSINGUZI TECHNOLOGIES LTD | All Rights Reserved</div>
+            </footer>
+        </div>
+
+
+
+        <script>
+            const close = document.getElementById('mob-close-icon')
+            const menu_wrapper =document.getElementsByClassName('mob-menu-wrapper')
+            const open = document.getElementById('mob-menu-icon')
+
+            function open(){
+                close.style.display='none'
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% extends 'main.html' %}
+{% load static %}
+<html>
+
+
+
+    {% block content %}
+    
+<div class="banner">
+	<div class="slider">
+        <figure>
+
+            <img src="{% static 'images/group.jpg' %}" alt="electronics" id="slideImg">
+            <img src="{% static 'images/fun.jpg' %}" alt="electronics" id="slideImg">
+            <img src="{% static 'images/elnaks.jpg' %}" alt="electronics" id="slideImg">
+            <img src="{% static 'images/interngroup.jpg' %}" alt="electronics" id="slideImg">
+            <img src="{% static 'images/group.jpg' %}" alt="electronics" id="slideImg">
+        </figure>
+		
+	</div>
+	<div class="overlay">
+
+		<div class="content">
+			
+				<h1 id="title">Internship @Musinguzi Technologies</h1>
+				<h3>We offer intensive practical training to our students equipping them will all the required skills to make a sustainable career in the IT industry.</h3>
+                <hr>
+				<h4>With us, You'll learn Computer Repair and Maintenance, Web Design and Hosting, Networking , Embedded Systems Design, GPS Tracking , Graphics, Access Control Systems, CCTV and SPY Camera Installation and Maintenance etc....</h4>
+				<a href="{% url 'application' %}"><button type="button"> APPLY NOW</button></a>
+				<button type="button" class="btn-contact"> CONTACT US</button>
+	
+		</div>
+	</div>
+</div>
+<div class="mob-menu-wrapper">
+<div></div>
+<div class="mob-menu-list" >
+	<a href="#"><i class="fa-solid fa-house" style="color:#313030; margin-right:5px"></i>Home</a>
+	<a href="#"><i class="fa-solid fa-address-card" style="color:#313030; margin-right:5px"></i>About Us</a>
+	<a href="#"><i class="fa-solid fa-boxes-stacked" style="color:#313030; margin-right:5px"></i>Our Services</a>
+	{% if request.user.is_authenticated %}
+
+	{% if request.user.is_superuser %}
+	<a href="{% url 'view_internees' %}" style="text-decoration: none; font-size: 20px;">View Internees [{{number}}]</a>
+	<a href="{% url 'logout' %}" style="text-decoration: none"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Logout</a>
+	{% endif %}
+	{% else %} 
+	<a href="{% url 'login' %}" style="text-decoration: none"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right:8px; color: #000; font-weight: bold"></i>Login</a>
+	{% endif %}</div>
+	
+</div>
+
+{% endblock content %}
+
+
+
+<!-- <script >
+	var slideImg = document.getElementById('slideImg');
+	var images = '{{photos}}'
+    
+	var len = images.length;
+	var i = 0;
+	function slider(){
+		if (i>len-1){
+			i = 0;
+		}
+		slideImg.src= images[i]
+		i++;
+		setTimeout('slider()', 3000)
+	}
+</script> -->
+
+
+
+</html>
