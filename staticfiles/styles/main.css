@@ -1,0 +1,417 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+body{
+	width: 100%;
+	overflow-x: hidden;
+}
+.header-top-section{
+    background-color: green;
+    align-items: center;
+}
+@media screen and (max-width: 767px){
+	.header-top{
+		display: block;
+	}
+}
+.slogan{
+    display: flex;
+    padding: 2px;
+    color: #fff;
+}
+@media screen and (max-width: 767px){
+	.slogan{
+		display: block;
+		text-align: left;
+		margin-left: 10px;
+		font-size: 15px
+	};
+}
+.header-top{
+	flex: 1;
+    align-items: center;
+	text-align: right;
+    top: 0; 
+}
+@media screen and (max-width: 767px){
+	.header-top{
+		flex: 1;
+		text-align: center;
+		margin-left: 0;
+		font-size: 10px
+	};
+}
+.navbar{
+	width: 100%;
+	display: grid;
+    grid-template-columns: 1fr 2fr;
+	align-items: center;
+	margin: 0 auto;
+	top: 0;
+	overflow: hidden;
+}
+.logo{
+	flex-basis: 15%;
+    background-color: green;
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+}
+.logo img{
+	width: 70px;
+	cursor:  pointer;
+	border-radius: 10px;
+    background: transparent;
+}
+.logo-text{
+	margin-top:10px; 
+	background:#fff;
+	 padding:4px;
+	  margin-left:-2px; 
+	  border-radius: 15px;
+	  height: 35px;
+}
+@media screen and (max-width: 767px) {
+
+	.logo-text {
+		font-size: 10px;
+		color: #000;
+	}
+	
+}
+.hideme{
+	display: none;
+}
+.showme{
+	display: none;
+}
+@media screen and (max-width: 767px) {
+	.showme{
+		display: block;
+		color: rgb(7, 146, 7);
+		font-weight: bold;
+		margin-left: 12px;
+		margin-top: 10px;
+	}
+	
+}
+.menu-icon{
+	display: none;
+}
+@media screen and (max-width: 767px) {
+	.menu-icon{
+		display: flex;
+		background-color: transparent;
+		height: 10vh;
+	}
+	
+}
+#mob-menu-icon{
+	width: 15%;
+	right: 0;
+	margin-left: 40px;
+	transition: 3s;
+}
+#mob-menu-icon:hover{
+	color: green;
+	font-weight: bold;
+}
+/* @media screen and (max-width:767px) {
+	.mob-menu-list{
+		display: none;
+	}
+	#mob-close-icon{
+		display: none;
+	}
+	
+} */
+#mob-close-icon{
+	width: 15%;
+	margin-left: 40px;
+	transition: 3s;
+	display: none;
+}
+.mob-menu-wrapper{
+	width: 100%;
+height: 150vh;
+background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+position: absolute;
+top: 19%; margin-right: 0; text-align: right;display: grid; grid-template-columns: 1fr 1fr;
+display: none;
+}
+.mob-menu-list{
+	background-color: green;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: left;
+	height: 40vh;
+
+}
+.mob-menu-list a{
+	text-decoration: none;
+	text-align: left;
+	margin-left: 20px;
+	justify-content: center;
+	font-weight: bold;
+	margin-top: 12px;
+}
+#mob-close-icon:hover{
+	color: green;
+	font-weight: bold;
+}
+.menu-icons{
+	flex: 1;
+	align-items: center;
+	text-align: right;
+}
+@media screen and (max-width: 767px){
+	.menu-icons{
+		display: none;
+	}
+}
+@media screen and (max-width: 767px) {
+	.hideme{
+		display: none;
+	}
+	
+}
+.menu-icons a{
+	width: 20px;
+	margin-left: 40px;
+	cursor: pointer;
+    color: rgb(7, 146, 7);
+    font-weight: bold;
+}
+
+.banner{
+	width: 100%;
+	height: 80vh;
+	position: relative;
+	overflow: hidden;
+}
+
+.slider{
+	/* width: 100%;
+	height: 150vh;
+	position: absolute;
+	top: 0; */
+	overflow: hidden;
+}
+.slider figure{
+	position: relative;
+	width: 500%;
+	margin: 0;
+	left: 0;
+	/* display: flex; */
+	animation: slidemotion 20s infinite;
+
+}
+@keyframes slidemotion {
+	0%{
+		left: 0;
+	}
+	20%{
+		left: 0;
+	}
+	25%{
+		left: -100%;
+	}
+	45%{
+		left: -100%;
+	}
+	50%{
+		left: -200%;
+	}
+	70%{
+		left: -200%;
+	}
+	75%{
+		left: -300%;
+	}
+	95%{
+		left: -300%
+	}
+	100%{
+		left: -400%;
+	}
+	
+	
+}
+
+#slideImg{
+	position: cover;
+	height: 90vh;
+	width: 20%;
+	float: left;
+}
+
+.overlay{
+	width: 100%;
+	height: 150vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+	position: absolute;
+	top: 0;
+}
+
+.content{
+	width: 60%;
+	margin: 90px auto 0;
+	text-align: center;
+	color: #fff;
+	position: relative;
+}
+@media screen and (max-width: 767px) {
+	.content{
+		margin-top: 25px;
+	}
+	
+}
+.content h1{
+	font-size: 40px;
+	color: red;
+}
+.content h3{
+	width: 80%;
+	margin: 4% auto;
+	/* margin: 10px auto 100px; */
+	font-weight: 100;
+	line-height: 25px;
+	color: yellow;
+}
+.content h4{
+	width: 80%;
+	margin: 4% auto;
+	/* margin: 10px auto 100px; */
+	font-weight: 100;
+	line-height: 25px;
+}
+@media screen and (max-width: 767px) {
+	#title{
+		color: red;
+		font-size: 18px;
+	}
+	.content h3{
+		color: yellow;
+		font-size: 12px;
+	}
+	.content h4{
+		font-size: 10px
+	}
+	.content button{
+		width: 40%;
+	}
+	
+}
+button{
+	width: 200px;
+	padding: 15px 0;
+	text-align: center;
+	margin: 0 10px;
+	border-radius: 25px;
+	background: green;
+	color: #fff;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: background 1s;
+}
+button:hover{
+	background: transparent;
+	border: 2px solid green;
+}
+.btn-contact{
+	background: transparent;
+	border: 2px solid green;
+}
+.btn-contact:hover{
+	background: green;
+}
+.footer{
+    bottom: 0;
+}
+
+
+
+/* Styles for the application form */
+
+main{
+	padding: 3%;
+	background:linear-gradient(rgba(63, 61, 61, 0.7),rgba(0, 0, 0, 0.7));
+	overflow: hidden;
+}
+.text{
+	text-align: center;
+	color: #000;
+}
+.text h3{
+	margin: 4px;
+	color:#fff
+}
+.text p{
+	margin: 5px;
+	color: rgb(12, 47, 12);
+	font-weight: bold;
+}
+.application-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	margin-top: 12px;
+}
+.application-logo{
+	width: 90%;
+	height: 100%;
+	border-radius: 5px;
+}
+.form-divs-wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border: 2px solid green;
+}
+input{
+	text-align: center;
+	right: 0;
+	padding: 3px;
+	width: 90%;
+	border-radius: 8px;
+	border: 2px solid green;
+	outline: none;
+}
+select{
+	width: 50%;
+	border-radius: 8px;
+	padding: 3px ;
+	border: 2px solid green;
+	outline: none;
+}
+ select option{
+	border-bottom: 1px solid green;
+}
+
+/* Styling the Internees template */
+
+
+.internees_container{
+	padding: 20px;
+
+}
+.internee-wrapper{
+	padding-top: 15px;
+}
+.internee-wrapper a{
+	text-decoration: none;
+}
+.internee-hero-text{
+	text-align: center;
+	color: #fff;
+}
+.internee-info{
+	text-align: left;
+	margin: 20px;
+	margin-left: 20%;
+}
+.internee-info h3{
+	margin: 10px;
+}
